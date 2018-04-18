@@ -1,2 +1,6 @@
 venv
 review.md
+get-pip.py
+.vscode
+populate.py
+restaurantmenu.db
