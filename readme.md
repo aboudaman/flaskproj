@@ -12,15 +12,15 @@ $ . venv/bin/activate
 #Deactivating
 $ deactivate
 
-# Before instally flask and sqlalchemy
+# Before instally flask and sqlalchemy (https://pip.pypa.io/en/stable/installing/)
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python get-pip.py
 
 #Installing Flask
-$ pip3 install Flask
+$ pip install Flask
 
 #Install SQLAlchemy 
-$ pip3 install sqlalchemy
+$ pip install sqlalchemy
 
 #Install pylint
 $ pip3 install pylint
