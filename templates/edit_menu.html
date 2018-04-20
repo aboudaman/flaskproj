@@ -1,10 +1,10 @@
 {% extends 'base.html'%}
 
 {%block body%}
-<form action="">
-    <input type="text" placeholder="" name="">
-    <button type="submit">submit</button>
-    <button type="submit">cancel</button>
+<form action=" {{url_for('editMenu',restaurant_id=restaurant_id, menu_id=menu_id )}}" method="POST">
+    <input type="text" placeholder="" name="name" value="{{item.name}}"/>
+    <button type="submit">Edit</button>
+    <a href= '{{url_for('restaurantMenu', restaurant_id= restaurant_id)}}'>Cancel</a>
 </form>
 
 {%endblock%}
