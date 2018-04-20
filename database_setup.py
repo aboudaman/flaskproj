@@ -1,9 +1,9 @@
 import os
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, String
+
+from sqlalchemy import create_engine,Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
@@ -13,6 +13,12 @@ class Restaurant(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(250), nullable=False)
+        # Set up data for json
+    @property
+    def serialize(self):
+        return {
+            'name': self.name,
+        }
 
 class MenuItem(Base):
     __tablename__ = 'menu_item'
@@ -24,6 +30,17 @@ class MenuItem(Base):
     course = Column(String(250))
     restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
     restaurant = relationship(Restaurant)
+
+    # Set up data for json
+    @property
+    def serialize(self):
+        return {
+            'name': self.name,
+            'description': self.description,
+            'id': self.id,
+            'price': self.price,
+            'course': self.course,
+        }
 
 engine = create_engine(
     'sqlite:///restaurantmenu.db'
