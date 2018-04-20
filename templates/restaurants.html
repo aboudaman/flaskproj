@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>List of Restaurants</h1>
+    {% for restaurant in restaurants %}
+        <p>{{ restaurant.name }} &nbsp; <a href="{{url_for('restaurantMenu', restaurant_id=restaurant.id)}}">View Menu</a> </p> 
+      
+    {% endfor %}
+   
+
+{% endblock%}
